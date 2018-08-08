@@ -1,6 +1,8 @@
 {
   "name": "ledger-nano-test",
   "version": "0.1.0",
+  "author": "Andrey Korin <a.korin@outlook.com>",
+  "homepage": "http://akrn.github.io/ledger-nano-test",
   "private": true,
   "dependencies": {
     "@ledgerhq/hw-app-eth": "^4.21.0",
