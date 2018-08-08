@@ -1,0 +1,19 @@
+{
+  "name": "ledger-nano-test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ledgerhq/hw-app-eth": "^4.21.0",
+    "@ledgerhq/hw-transport-http": "^4.21.0",
+    "@ledgerhq/hw-transport-u2f": "^4.21.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
