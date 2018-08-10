@@ -4,6 +4,7 @@ import Transport from '@ledgerhq/hw-transport-u2f'
 import Eth from '@ledgerhq/hw-app-eth'
 
 let ethInstance
+const BASE_DERIVATION_PATH = "m/44'/60'/0'"
 
 class App extends Component {
   state = { status: 'Not connected', addresses: [] }
@@ -14,12 +15,16 @@ class App extends Component {
   }
 
   handleGetAddresses = async () => {
-    const result = await ethInstance.getAddress("m/44'/60'/0'/0")
-    console.log(result)
+    const addresses = []
+    for (let i = 0; i < 5; i++) {
+      const result = await ethInstance.getAddress(`${BASE_DERIVATION_PATH}/${i}`)
+      addresses.push(result.address)
+    }
+    this.setState({ addresses })
   }
 
   render() {
-    const { status, addresses } = this.state
+    const { status, addresses, derivationPath } = this.state
 
     return (
       <div style={{margin: '20px'}}>
@@ -28,7 +33,7 @@ class App extends Component {
         <hr />
         <button onClick={this.handleGetAddresses}>Get Addresses</button>
         <ul>
-          {addresses.map((addr, idx) => <li key={idx}>addr</li>)}
+          {addresses.map((addr, idx) => <li key={idx}>{addr}</li>)}
         </ul>
       </div>
     );
